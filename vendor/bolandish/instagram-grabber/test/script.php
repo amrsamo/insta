@@ -141,8 +141,8 @@ file_put_contents('index.txt',$new_index);
 // foreach ($hashtags as $hashtag) {
 	
 	$media = Bolandish\Instagram::getMediaByHashtag($hashtag, 200 , false, true);
-	printme($media);
-	exit();
+	// printme($media);
+	// exit();
 	include_once('instagram_script.php');
 	exit();
 // }
