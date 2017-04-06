@@ -101,33 +101,41 @@ function saveMails($data, $user_data)
     else
         $isVerified = 0;
 
-    foreach ($data as $mail) {
-        $sql = "INSERT INTO mails_scrap (email,username,url,followers,hashtag, externalUrl, location,instagram_unique_id,fullName,profilePicUrl ,biography,followsCount,mediaCount,isPrivate,isVerified,country,city)
-                VALUES ('".$mail."','".$user_data['username'].
-                           "','".$user_data['url'].
-                           "',".$user_data['followers'].",
-                           '".$user_data['hashtag']."',
-                           '".$user_data['externalUrl']."',
-                           '".$user_data['location']."',
-                           '".$user_data['instagram_unique_id']."',
-                           '".$user_data['fullName']."',
-                           '".$user_data['profilePicUrl']."',
-                           '".$user_data['biography']."',
-                           '".$user_data['followsCount']."',
-                           '".$user_data['mediaCount']."',
-                           '".$isPrivate."',
-                           '".$isVerified."',
-                           '".$user_data['country']."',
-                           '".$user_data['city']."'
 
 
-                        )";
+    $sql = "select id from mails_scrap where username='".$user_data['username']."' ";
+    $result = mysqli_query($conn, $sql);
+    $rowcount=mysqli_num_rows($result);
+    if($rowcount != 1)
+    {
+        foreach ($data as $mail) {
+            $sql = "INSERT INTO mails_scrap_2 (email,username,url,followers,hashtag, externalUrl, location,instagram_unique_id,fullName,profilePicUrl ,biography,followsCount,mediaCount,isPrivate,isVerified,country,city)
+                    VALUES ('".$mail."','".$user_data['username'].
+                               "','".$user_data['url'].
+                               "',".$user_data['followers'].",
+                               '".$user_data['hashtag']."',
+                               '".$user_data['externalUrl']."',
+                               '".$user_data['location']."',
+                               '".$user_data['instagram_unique_id']."',
+                               '".$user_data['fullName']."',
+                               '".$user_data['profilePicUrl']."',
+                               '".$user_data['biography']."',
+                               '".$user_data['followsCount']."',
+                               '".$user_data['mediaCount']."',
+                               '".$isPrivate."',
+                               '".$isVerified."',
+                               '".$user_data['country']."',
+                               '".$user_data['city']."'
 
 
-        if (mysqli_query($conn, $sql)) {
-        echo "New record created successfully";
-        } else {
-            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+                            )";
+
+
+            if (mysqli_query($conn, $sql)) {
+            echo "New record created successfully";
+            } else {
+                echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+            }
         }
     }
 
