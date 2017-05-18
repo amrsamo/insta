@@ -30,61 +30,17 @@ class Instagram {
     
     protected static function setProxy()
     {
-        $proxies = "89.32.69.2:3128,192.126.159.29:3128,89.32.69.91:3128,50.31.8.56:3128,50.31.8.21:3128,50.31.8.149:3128,192.126.159.203:3128,89.32.69.87:3128,50.31.8.17:3128,89.32.69.206:3128,185.152.128.128:10220,185.152.128.9:10205
-                    ,185.152.128.116:10196
-                    ,185.152.128.70:10186
-                    ,185.152.128.51:10463
-                    ,185.152.128.59:10350
-                    ,185.152.128.68:10179
-                    ,185.152.128.77:10205
-                    ,185.152.128.10:10248
-                    ,185.152.128.41:10465
-                    ,185.152.128.69:10179
-                    ,185.152.128.120:10223
-                    ,185.152.128.42:10461
-                    ,185.152.128.14:10211
-                    ,185.152.128.112:10036
-                    ,185.152.128.17:10221
-                    ,185.152.128.64:10436
-                    ,185.152.128.40:10442
-                    ,185.152.128.22:10412
-                    ,185.152.128.33:10427
-                    ,185.152.128.71:10187
-                    ,185.152.128.53:10389
-                    ,185.152.128.47:10388
-                    ,185.152.128.76:10207
-                    ,185.152.128.5:10197
-                    ,185.152.128.66:10190
-                    ,185.152.128.61:10411
-                    ,185.152.128.80:10193
-                    ,185.152.128.52:10068
-                    ,185.152.128.9:10206
-                    ,185.152.128.52:10072
-                    ,185.152.128.70:10187
-                    ,185.152.128.52:10074
-                    ,185.152.128.121:10175
-                    ,185.152.128.116:10197
-                    ,185.152.128.34:10454
-                    ,185.152.128.27:10109
-                    ,185.152.128.114:10197
-                    ,185.152.128.5:10198
-                    ,185.152.128.109:10787
-                    ,185.152.128.50:10391
-                    ,185.152.128.19:10093
-                    ,185.152.128.79:10204
-                    ,185.152.128.66:10191
-                    ,185.152.128.107:10498
-                    ,185.152.128.129:10202
-                    ,185.152.128.118:10215
-                    ,185.152.128.28:10441
-                    ,185.152.128.3:10221
-                    ,185.152.128.28:10442
-                    ,185.152.128.29:10400
-                    ,185.152.128.22:10423
-                    ,185.152.128.94:10610
-                    ,185.152.128.15:10222
-                    ,185.152.128.95:10505
-                    ,185.152.128.39:10088";
+        $proxies = "89.32.69.2:3128,
+                    192.126.159.29:3128,
+                    89.32.69.91:3128,
+                    50.31.8.56:3128,
+                    50.31.8.21:3128,
+                    50.31.8.149:3128,
+                    192.126.159.203:3128,
+                    89.32.69.87:3128,
+                    50.31.8.17:3128,
+                    89.32.69.206:3128
+                    ";
 
         $proxies = explode(',', $proxies);
 
@@ -97,7 +53,6 @@ class Instagram {
 
             // $index =9;
             $proxy = $proxies[$index];
-
             $new_index = $index+1;
             if($new_index == 10)
                 $new_index = 0;
@@ -120,12 +75,11 @@ class Instagram {
         curl_setopt($ch, CURLOPT_POSTFIELDS, 'q='.$parameters);
         
         $proxy = self::setProxy();
-        // echo $proxy;
         curl_setopt($ch, CURLOPT_PROXY, $proxy);
-        $username = '1543amrsamo';
-        $password = 'bakrbakr';
+        // $username = '1543amrsamo';
+        // $password = 'bakrbakr';
 
-        curl_setopt($ch, CURLOPT_USERPWD, "$username:$password");
+        // curl_setopt($ch, CURLOPT_USERPWD, "$username:$password");
         // foreach (self::$curlProxy as $k => $v) {
         //     curl_setopt($ch, $k, $v);
         // }
@@ -178,13 +132,13 @@ class Instagram {
         
         if($max_id)
         {
-            $parameters = urlencode("ig_hashtag($hashtag) { media.after($max_id,$count) {   count,   nodes {     caption,     code, location,   $comments,     date,     dimensions {       height,       width     },     display_src,     id,     is_video,     likes {       count     },     owner {       id,       username,       full_name,       profile_pic_url,     biography   ,follows{count}  ,followed_by{count} ,media{count} ,external_url     },     thumbnail_src,     video_views,     video_url   },   page_info }  }");
+            $parameters = urlencode("ig_hashtag($hashtag) { media.after($count,$count) {   count,   nodes {     caption,     code, location,   $comments,     date,     dimensions {       height,       width     },     display_src,     id,     is_video,     likes {       count     },     owner {       id,       username,       full_name,       profile_pic_url,     biography   ,follows{count}  ,followed_by{count} ,media{count} ,external_url     },     thumbnail_src,     video_views,     video_url   },   page_info }  }");
         }
         else
         {
-            $parameters = urlencode("ig_hashtag($hashtag) { media.first($count) {   count,   nodes {     caption,     code, location,   $comments,     date,     dimensions {       height,       width     },     display_src,     id,     is_video,     likes {       count     },     owner {       id,       username,       full_name,       profile_pic_url,     biography   ,follows{count}  ,followed_by{count} ,media{count} ,external_url, email    },     thumbnail_src,     video_views,     video_url   },   page_info }  }");
+            $parameters = urlencode("ig_hashtag($hashtag) { media.first($count) {   count,   nodes {     caption,     code, location,   $comments,     date,     dimensions {       height,       width     },     display_src,     id,     is_video,     likes {       count     },     owner {       id,       username,       full_name,       profile_pic_url,     biography   ,follows{count}  ,followed_by{count} ,media{count} ,external_url, email    },     thumbnail_src,     video_views,     video_url   },   page_info } ,page_info }");
         }
-        
+
         $media = json_decode(static::getContentsFromUrl($parameters), ($assoc || $assoc == "array"));
         if($assoc == "array")
             $media = $media["media"]["nodes"];
