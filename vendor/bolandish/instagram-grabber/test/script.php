@@ -8,67 +8,88 @@ require_once __DIR__ . '/../vendor/autoload.php';
 
 
 $hashtags = "
-#NYCblogger
-#Torontobeautyblogger
-#bbloggersca
-#Torontofashionblogger
-#torontofashionbloggers
-#torontoblogger
-#miamiblogger
-#chicagoblogger
-#houstonblogger
-#midwestblogger
-#LAblogger
-#toronto
-#newyork
-#newyorkcity
-#canada
-#beauty
-#blog
-#unitedstates
-#fashionista
-#fashion
-#style
-#blogger
-#youtube
-#brasil
-#bloggers
-#bloggerlife
-#blogs
-#fashionblogger
-#nyc
-#ny
-#newyorker
-#newyorkcity
-#Travelblogger
-#wearetravelgirls
-#Darlingescapes
-#dametraveler
-#foodblogger
-#foodbloggers
-#foodblog
-#atxblogger
-#atxfoodblogs
-#fashionblogger
-#beautyblogger
-#lifestyleblogger
-#lifestyleblog
-#blogger
-#bloggerlife
-#blogpost
-#blogging
-#bloggerstyle
-#instablogger
-#instabloggers
-#blog
-#yycblogger
-#Canadianblogger
-#Vancouverblogger
-#yvrblogger
+#losangelesblogger
+#montrealblogger
+#sfblogger
+#sanfranciscoblogger
+#sfblogger
+#washingtonblogger
+#bostonblogger
+#seattleblogger
+#phillyblogger
+#sandiegoblogger
+#detroitblogger
+#atlantablogger
 #dallasblogger
+#phoenixblogger
+#calgaryblogger
+#denverblogger
+#Pittsburghblogger
+#bloglovin
+#dcblogger
+#dslr
+#labeautyblogger
+#lafashionblogger
+#lastyleblogger
+#thebloggerunion
+#liketoknowit
+#sitsblogging
+#bloggerbabes
+#giftguide
+#malestyle
+#bloggerswanted
+#blogilates
+#blogto
+#bloggerdiaries
+#bloggervibes
+#bloggingtips
+#londonblogger
+#londonbloggers
+#ukblogger
+#ukbloggers
+#britishblogger
+#britishbloggers
+#muanyc
+#nycfitness
+#fitnessblogger
+#foodbloggerlife
+#torontofashion
+#nycfashion
+#londonfashion
+#birminghamblogger
+#bristolbloggers
+#glasgowblogger
+#glasgowbloggers
+#manchesterblogger
+#edinburghbloggers
+#liverpoolbloggers
+#leedsbloggers
+#leedsblogger
+#cardiffblogger
+#newcastleblogger
+#voxfordblogger
+#nottinghamblogger
+#southamptonblogger
+#englishblogger
+#britishstyle
+#irishblogger
+#irishbloggers
+#dublinblogger
+#belfastblogger
+#irishblog
+#ukblog
+#ukfoodblogger
+#ukfitnessblogger
+#ukfitnessblog 
+#ukyoga
+#vscoireland
+#vscouk
+#vscocanada
+#vscousa
 ";
 
 $hashtags = explode('#', $hashtags);
+
 foreach ($hashtags as $x => $value) {
     $hashtags[$x] = trim($value);
 }
@@ -90,10 +111,11 @@ file_put_contents('index.txt',$new_index);
 
 
 // foreach ($hashtags as $hashtag) {
-	
+	// printme($hashtag);
 	$media = Bolandish\Instagram::getMediaByHashtag($hashtag, 200 , false, true);
 	// printme($media);
 	// exit();
+	
 	include_once('instagram_script.php');
 	exit();
 // }
