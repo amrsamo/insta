@@ -30,33 +30,88 @@ class Instagram {
     
     protected static function setProxy()
     {
-        $proxies = "89.32.69.2:3128,
-                    192.126.159.29:3128,
-                    89.32.69.91:3128,
-                    50.31.8.56:3128,
-                    50.31.8.21:3128,
-                    50.31.8.149:3128,
-                    192.126.159.203:3128,
-                    89.32.69.87:3128,
-                    50.31.8.17:3128,
-                    89.32.69.206:3128
-                    ";
+        
+    $proxyies = array();
+    $proxyies[] = '89.32.69.2:3128';
+    $proxyies[] = '192.126.159.29:3128';
+    $proxyies[] = '89.32.69.91:3128';
+    $proxyies[] = '50.31.8.56:3128';
+    $proxyies[] = '50.31.8.21:3128';
+    $proxyies[] = '50.31.8.149:3128';
+    $proxyies[] = '192.126.159.203:3128';
+    $proxyies[] = '89.32.69.87:3128';
+    $proxyies[] = '50.31.8.17:3128';
+    $proxyies[] = '89.32.69.206:3128';
 
-        $proxies = explode(',', $proxies);
 
-        foreach ($proxies as $x => $value) {
-            $proxies[$x] = trim($value);
-        }
+        //NEW 50 PROXIES
+    $proxyies[] = '170.130.62.4:3128';
+    $proxyies[] = '206.214.93.65:3128';
+    $proxyies[] = '192.126.159.228:3128';
+    $proxyies[] = '104.140.210.122:3128';
+    $proxyies[] = '206.214.93.250:3128';
+    $proxyies[] = '104.140.209.88:3128';
+    $proxyies[] = '104.140.210.136:3128';
+    $proxyies[] = '206.214.93.46:3128';
+    $proxyies[] = '170.130.62.200:3128';
+    $proxyies[] = '192.126.159.212:3128';
+    $proxyies[] = '104.140.210.98:3128';
+    $proxyies[] = '173.234.249.239:3128';
+    $proxyies[] = '104.140.209.33:3128';
+    $proxyies[] = '104.140.209.62:3128';
+    $proxyies[] = '173.234.249.16:3128';
+    $proxyies[] = '192.126.157.3:3128';
+    $proxyies[] = '104.140.210.161:3128';
+    $proxyies[] = '170.130.62.145:3128';
+    $proxyies[] = '192.126.159.118:3128';
+    $proxyies[] = '192.126.159.246:3128';
+    $proxyies[] = '170.130.62.40:3128';
+    $proxyies[] = '206.214.93.166:3128';
+    $proxyies[] = '206.214.93.69:3128';
+    $proxyies[] = '206.214.93.139:3128';
+    $proxyies[] = '192.126.157.207:3128';
+    $proxyies[] = '192.126.159.45:3128';
+    $proxyies[] = '170.130.62.212:3128';
+    $proxyies[] = '94.229.71.61:3128';
+    $proxyies[] = '192.126.159.253:3128';
+    $proxyies[] = '104.140.210.65:3128';
+    $proxyies[] = '192.126.157.139:3128';
+    $proxyies[] = '94.229.71.67:3128';
+    $proxyies[] = '170.130.62.216:3128';
+    $proxyies[] = '104.140.210.85:3128';
+    $proxyies[] = '192.126.159.200:3128';
+    $proxyies[] = '192.126.159.146:3128';
+    $proxyies[] = '206.214.93.34:3128';
+    $proxyies[] = '94.229.71.28:3128';
+    $proxyies[] = '192.126.157.63:3128';
+    $proxyies[] = '192.126.157.39:3128';
+    $proxyies[] = '192.126.157.124:3128';
+    $proxyies[] = '206.214.93.247:3128';
+    $proxyies[] = '104.140.209.177:3128';
+    $proxyies[] = '192.126.157.8:3128';
+    $proxyies[] = '104.140.209.192:3128';
+    $proxyies[] = '94.229.71.14:3128';
+    $proxyies[] = '94.229.71.42:3128';
+    $proxyies[] = '94.229.71.108:3128';
+    $proxyies[] = '104.140.209.173:3128';
+    $proxyies[] = '192.126.157.47:3128';
+
+        // $proxies = explode(',', $proxies);
+
+        // foreach ($proxies as $x => $value) {
+        //     $proxies[$x] = trim($value);
+        // }
 
             $index =file_get_contents("proxy.txt");
             $index = intval($index);
 
             // $index =9;
-            $proxy = $proxies[$index];
+            $proxy = $proxyies[$index];
             $new_index = $index+1;
-            if($new_index == 10)
+            if($new_index == count($proxyies))
                 $new_index = 0;
             file_put_contents('proxy.txt',$new_index);
+            
             
             return $proxy;
 
