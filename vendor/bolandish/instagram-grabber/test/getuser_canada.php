@@ -58,7 +58,7 @@ function getUsers()
 	        $user_data['username'] = $owner_account->username;
 	        $user_data['url'] = 'https://www.instagram.com/'.$owner_account->username.'/';
 	        $user_data['followers'] = $owner_account->followed_by->count;
-	        $user_data['hashtag']       = 'australia';
+	        $user_data['hashtag']       = 'canada_location';
 	        $user_data['externalUrl']       = $owner_account->external_url;
 	        $user_data['instagram_unique_id']       = $owner_account->id;
 	        $user_data['fullName']       = $owner_account->full_name;
